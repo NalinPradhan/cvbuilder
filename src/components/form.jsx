@@ -7,10 +7,10 @@ const FormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/submit', {
+      const response = await fetch('https://potential-fiesta-7xgp95xxw9cx7r4-3000.app.github.dev/app-cv', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        // body: JSON.stringify(formData)
       });
       if (response.ok) {
         alert('Form submitted successfully!');
