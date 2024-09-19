@@ -4,6 +4,21 @@ import * as Yup from "yup";
 
 const FormComponent = () => {
   const msmall = "m-3";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        alert('Form submitted successfully!');
+      }
+    } catch (err) {
+      alert('Failed to submit form');
+    }
+  };
   return (
     <Formik
       initialValues={{ name: "", email: "", phone: "" }}
@@ -102,9 +117,10 @@ const FormComponent = () => {
             <ErrorMessage name="to" />
           </div>
         </div>
-        <button className="border bg-green-300 p-1 pl-2 pr-2 mt-3" type="submit">
+        <button onClick={handleSubmit} className="border bg-green-300 p-1 pl-2 pr-2 mt-3" type="submit">
           Submit
         </button>
+       
       </Form>
     </Formik>
   );
