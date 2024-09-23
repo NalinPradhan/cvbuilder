@@ -1,12 +1,19 @@
-// backend/models/userModel.js
-const mongoose = require('mongoose');
+  
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+  
 const cvSchema = new Schema({
-  name: String,
-  email: String,
-  phone: String, // Adjusted to match the field name in your data
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  schoolName: { type: String },
+  course: { type: String },
+  date: { type: Date },
+  companyName: { type: String },
+  title: { type: String },
+  rsb: { type: String },
+  from: { type: Date },
+  to: { type: Date },
 });
 
-const Cv = mongoose.model('cvinfo', cvSchema);
-
-module.exports = Cv;
+module.exports = mongoose.model("cvinfo", cvSchema);

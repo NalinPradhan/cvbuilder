@@ -8,7 +8,7 @@ const FormComponent = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const response = await fetch(
-        "https://potential-fiesta-7xgp95xxw9cx7r4-5000.app.github.dev/",
+        "http://localhost:5000",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

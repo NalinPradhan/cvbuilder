@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-  origin: "https://potential-fiesta-7xgp95xxw9cx7r4-5000.app.github.dev/", // Replace with your Codespace URL
+  origin: "http://localhost:3000", // Replace with your Codespace URL
   methods: "GET,POST,PUT,DELETE", // Allowed methods
   allowedHeaders: "Content-Type,Authorization", // Allowed headers
 };
@@ -36,19 +36,3 @@ app.post("/", (req, res) => {
     });
 });
 
-app.get("/add-cv", (req, res) => {
-  const newCv = new Cv({
-    name: "Apran Shah",
-    email: "aprina@gmial.com",
-    phone: "1234567890",
-  });
-  newCv
-    .save()
-    .then((result) => {
-      console.log("cv added");
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
