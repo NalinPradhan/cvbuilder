@@ -13,7 +13,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 const dbURI =
-  "mongodb+srv://nalinforodin:Kansasnalin1@theodinproject.w97oi.mongodb.net/cv?retryWrites=true&w=majority&appName=theodinproject";
+  "mongodb+srv://nalinforodin:Kansasnalin1@theodinproject.w97oi.mongodb.net/cv?retryWrites=true&w=majority&appName=theodinproject&connectTimeoutMS=30000";
 mongoose
   .connect(dbURI)
   .then((result) => {
