@@ -5,9 +5,11 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your Codespace URL
+  origin: ["https://zany-spoon-p9j9jpgvr95h64q6-3000.app.github.dev"], // Replace with your Codespace URL
   methods: "GET,POST,PUT,DELETE", // Allowed methods
   allowedHeaders: "Content-Type,Authorization", // Allowed headers
+  exposedHeaders: ["Access-Control-Allow-Origin"], // Expose the Access-Control-Allow-Origin header
+
 };
 
 app.use(cors(corsOptions));

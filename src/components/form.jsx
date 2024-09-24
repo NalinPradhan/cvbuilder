@@ -5,24 +5,28 @@ import * as Yup from "yup";
 const FormComponent = () => {
   const msmall = "m-3";
 
+  // const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const API_URL = window.location.hostname.includes("github.dev")
+  ? "https://zany-spoon-p9j9jpgvr95h64q6-5000.app.github.dev"
+  : "http://localhost:5000";
+
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const response = await fetch(
-        "http://localhost:5000",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values), // Formik values are passed here
-        }
-      );
+      const response = await fetch(`${API_URL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
       if (response.ok) {
         alert("Form submitted successfully!");
-        resetForm(); // Optionally reset the form after submission
+        resetForm();
       }
     } catch (err) {
       alert("Failed to submit form");
     }
   };
+
 
   return (
     <Formik
