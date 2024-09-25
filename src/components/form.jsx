@@ -4,11 +4,14 @@ import * as Yup from "yup";
 
 const FormComponent = () => {
   const msmall = "m-3";
+  const backendport = 5000;
+  const originalString = window.location.hostname;
+  const updatedString = originalString.replace('-3000', `-${backendport}`);
 
-  // const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
   const API_URL = window.location.hostname.includes("github.dev")
-  ? "https://zany-spoon-p9j9jpgvr95h64q6-5000.app.github.dev"
-  : "http://localhost:5000";
+    ? "https://" + updatedString
+    : "http://localhost:5000";
+
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
